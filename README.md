@@ -1,7 +1,5 @@
 
 
-<img src='assets/teaser.jpg'/>
-
 **This repository is just a pytorch implementation of the paper *ShapeFormer: Transformer-based Shape Completion via Sparse Representation*.**
 
 
