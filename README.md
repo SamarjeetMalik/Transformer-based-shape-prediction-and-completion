@@ -9,12 +9,11 @@
 
     git clone --recursive https://github.com/QhelDIV/ShapeFormer.git
 
-Then, create a conda environment with the yaml file. (Sometimes the conda is very slow to solve the complex dependencies of this environment, so [mamba](https://mamba.readthedocs.io/en/latest/index.html) is highly recommended)
 
     conda env create -f environment.yaml
     conda activate shapeformer
 
-Next, we need to install torch_scatter through this command
+
 
     pip install torch-scatter==2.0.7 -f https://data.pyg.org/whl/torch-1.7.0+cu101.html
 
