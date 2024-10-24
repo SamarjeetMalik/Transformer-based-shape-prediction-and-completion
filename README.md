@@ -8,20 +8,12 @@
 ## Installation
 
     git clone --recursive https://github.com/QhelDIV/ShapeFormer.git
-
-
     conda env create -f environment.yaml
     conda activate shapeformer
-
-
 
     pip install torch-scatter==2.0.7 -f https://data.pyg.org/whl/torch-1.7.0+cu101.html
 
 ## Demo
-
-First, download the pretrained model from this google drive [URL](https://drive.google.com/file/d/1QmR27nHcLmzFfyvxs3NH7pzUmbVATt4f/view?usp=sharing) and extract the content to experiments/
-
-Then run the following command to test VQDIF. The results are in `experiments/demo_vqdif/results`
 
     python -m shapeformer.trainer --opts configs/demo/demo_vqdif.yaml --gpu 0 --mode "run"
 
@@ -62,11 +54,3 @@ After VQDIF is trained, train ShapeFormer with
 
 For testing, you just need to append `--mode test` to the above commands.
 And if you only want to run callbacks (such as visualization/generation), set the mode to `run`
-
-There is a visualization callback for both VQDIF and ShapeFormer, who will call the model to obtain 3D meshes and render them to images. The results will be save in `experiments/$exp_name$/results/$callback_name$/`
-The callbacks will be automatically called during training and testing, so to get the generation results you just need to test the model.
-
-ALso notice that in the configuration files batch sizes are set to very small so that the model can run on a 12GB memory GPU. You can tune it up if your GPU has a larger memory.
-
-### Multi-GPU
-Notice that to use multiple GPUs, just specify the GPU ids. For example `--gpu 0 1 2 4` is to use the 0th, 1st, 2nd, 4th GPU for training. Inside the program their indices will be mapped to 0 1 2 3 for simplicity.
