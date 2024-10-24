@@ -6,12 +6,6 @@
 
 
 ## Installation
-The code is tested in docker enviroment [pytorch/pytorch:1.6.0-cuda10.1-cudnn7-devel](https://hub.docker.com/layers/pytorch/pytorch/pytorch/1.6.0-cuda10.1-cudnn7-devel/images/sha256-ccebb46f954b1d32a4700aaeae0e24bd68653f92c6f276a608bf592b660b63d7?context=explore).
-The following are instructions for setting up the environment in a Linux system from scratch.
-You can also directly pull our provided docker environment: `sudo docker pull qheldiv/shapeformer`
-Or build the docker environment by yourself with the setup files in the `Docker` folder.
-
-First, clone this repository with submodule xgutils. [xgutils](https://github.com/QhelDIV/xgutils.git) contains various useful system/numpy/pytorch/3D rendering related functions that will be used by ShapeFormer.
 
     git clone --recursive https://github.com/QhelDIV/ShapeFormer.git
 
