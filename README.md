@@ -2,23 +2,8 @@
 
 <img src='assets/teaser.jpg'/>
 
-https://user-images.githubusercontent.com/5100481/150949433-40d84ed1-0a8d-4ae4-bd53-8662ebd669fe.mp4
-
 **This repository is just a pytorch implementation of the paper *ShapeFormer: Transformer-based Shape Completion via Sparse Representation*.**
 
-[Xinggaung Yan](http://yanxg.art)<sup>1</sup>,
-[Liqiang Lin](https://vcc.tech/people-4)<sup>1</sup>,
-[Niloy Mitra](http://www0.cs.ucl.ac.uk/staff/n.mitra/)<sup>2</sup>,
-[Dani Lischinski](https://www.cs.huji.ac.il/~danix/)<sup>3</sup>,
-[Danny Cohen-Or](https://danielcohenor.com/)<sup>4</sup>,
-[Hui Huang](https://vcc.tech/~huihuang)<sup>1†</sup> <br>
-<sup>1</sup>Shenzhen University, <sup>2</sup>University College London, <sup>3</sup>Hebrew University of Jerusalem, <sup>4</sup>Tel Aviv University
-
-## :hourglass_flowing_sand: UPDATES
-- [x] Core model code is released, please check core_code/README.md
-- [x] The complete code is released! Please have a try!
-- [x] (DFAUST) The data preprocess code for D-FAUST human shape is released!
-- [ ] Add Google Colab
 
 ## Installation
 The code is tested in docker enviroment [pytorch/pytorch:1.6.0-cuda10.1-cudnn7-devel](https://hub.docker.com/layers/pytorch/pytorch/pytorch/1.6.0-cuda10.1-cudnn7-devel/images/sha256-ccebb46f954b1d32a4700aaeae0e24bd68653f92c6f276a608bf592b660b63d7?context=explore).
@@ -92,50 +77,3 @@ ALso notice that in the configuration files batch sizes are set to very small so
 
 ### Multi-GPU
 Notice that to use multiple GPUs, just specify the GPU ids. For example `--gpu 0 1 2 4` is to use the 0th, 1st, 2nd, 4th GPU for training. Inside the program their indices will be mapped to 0 1 2 3 for simplicity.
-
-## Frequently Asked Questions
-
-*What is the meaning of the variables Xbd, Xtg, Ytg... ?*
-
-Here is a brief description of the variable names:
-
-> `tg` stands for `target`, which is the samples (probes) of the target occupancy fields.
-> `bd`, or `boundary` stands for the points sampled from the shape surface.
-> `ct` stands for `context`, which is the partial point cloud that we want to complete.
-> `X` stands for point coordinate.
-> `Y` stands for the occupancy value of the point coordinate.
-
-The `target` and `context` names come from the field of meta-learning.
-
-Notice that the `Ytg` in the hdf5 file stands for the occupancy value of the probes `Xtg`.
-In the case of `IMNET2_64`, `Xtg` is the collection of the 64-grid coordinates, which has the shape of `(64**3, 3)` and `Ytg` is the corresponding occupancy value.
-It is easy to visualize the shape with marching cubes if `Xtg` is points of a grid. But you can use arbitrarily sampled points as `Xtg` and `Ytg` for training.
-
-*How can I evaluate the ShapeFormer?*
-
-[Here](https://drive.google.com/file/d/1KjbFUuxTWrZ97Cz8ZlFoOB3gDGCyuwt-/view?usp=share_link) is an incomplete collection of evaluation code of ShapeFormer. 
-
-## :notebook_with_decorative_cover: Citation
-
-If you find our work useful for your research, please consider citing the following papers :)
-
-```bibtex
-@misc{yan2022shapeformer,
-      title={ShapeFormer: Transformer-based Shape Completion via Sparse Representation}, 
-      author={Xingguang Yan and Liqiang Lin and Niloy J. Mitra and Dani Lischinski and Danny Cohen-Or and Hui Huang},
-      year={2022},
-      eprint={2201.10326},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
-
-## 📢: Shout-outs
-The architecture of our method is inspired by [ConvONet](https://github.com/autonomousvision/convolutional_occupancy_networks), [Taming-transformers](https://github.com/CompVis/taming-transformers) and [DCTransformer](https://github.com/benjs/DCTransformer-PyTorch).
-Thanks to the authors.
-
-Also, make sure to check this amazing transformer-based image completion project([ICT](https://github.com/raywzy/ICT))!
-
-## :email: Contact
-
-This repo is currently maintained by Xingguang ([@qheldiv](https://github.com/qheldiv)) and is for academic research use only. Discussions and questions are welcome via qheldiv@gmail.com. 
